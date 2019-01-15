@@ -17,13 +17,12 @@ namespace ITequipment.Models
         public string Version { get; set; }
 		public string Comments { get; set; }
         public Status Status { get; set; }
-
-		[Key]
+        [Key]
         public int HardwareId { get; set; }
-        public Hardware Hardware { get; set; }
-		[Key]
+        public virtual Hardware Hardware { get; set; }		
+        [Key]
 		public int SoftwareId { get; set; }
-        public Software Software { get; set; }
+        public virtual Software Software { get; set; }
 		
     }
 }

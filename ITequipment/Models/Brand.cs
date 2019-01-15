@@ -13,8 +13,8 @@ namespace ITequipment.Models
 		public string Phone { get; set; }
 		public string WebPage { get; set; }
 		
-        public ICollection<Hardware> Hardware { get; set; }
-		public ICollection<Software> Software { get; set; }
+        public virtual ICollection<Hardware> Hardware { get; set; }
+		public virtual ICollection<Software> Software { get; set; }
     }
 }
 

@@ -20,9 +20,9 @@ namespace ITequipment.Models
         public string Purpose { get; set; }
 		public LicenceType LicenceType { get; set; }		
 
-        public int BrandId { get; set; }
-        public Brand Brand { get; set; }
+        //public int BrandId { get; set; }
+        public virtual Brand Brand { get; set; }
 
-        public ICollection<HW_SW> HW_SWs { get; set; }
+        public virtual ICollection<HW_SW> HW_SWs { get; set; }
     }
 }

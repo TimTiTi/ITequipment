@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ITequipment.Data
 {
-    //
+    
     public class ApplicationDbContext : IdentityDbContext
     {
 
@@ -21,6 +21,7 @@ namespace ITequipment.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            Database.EnsureCreated();            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

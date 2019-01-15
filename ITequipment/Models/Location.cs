@@ -11,6 +11,6 @@ namespace ITequipment.Models
 		public string Place { get; set; }
 		public string Country { get; set; }
 		
-        public ICollection<Room> Rooms { get; set; }
+        public virtual ICollection<Room> Rooms { get; set; }
     }
 }

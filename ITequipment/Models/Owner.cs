@@ -11,6 +11,6 @@ namespace ITequipment.Models
 		public string Email { get; set; }
 		public string Phone { get; set; }
 		
-        public ICollection<Hardware> Hardware { get; set; }
+        public virtual ICollection<Hardware> Hardware { get; set; }
     }
 }
