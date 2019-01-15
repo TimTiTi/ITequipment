@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ITequipment.Data
 {
-
+    //
     public class ApplicationDbContext : IdentityDbContext
     {
 
