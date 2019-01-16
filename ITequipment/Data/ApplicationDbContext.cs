@@ -11,12 +11,12 @@ namespace ITequipment.Data
     public class ApplicationDbContext : IdentityDbContext
     {
 
-        public DbSet<Location> Location { get; set; }
-        public DbSet<Room> Room { get; set; }
-        public DbSet<Owner> Owner { get; set; }
-        public DbSet<Brand> Brand { get; set; }
-        public DbSet<Software> Software { get; set; }
-        public DbSet<Hardware> Hardware { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Owner> Owners { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Software> Softwares { get; set; }
+        public DbSet<Hardware> Hardwares { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -38,7 +38,16 @@ namespace ITequipment.Data
                .WithMany(x => x.HW_SWs)
                .HasForeignKey(x => x.SoftwareId);
 
+            modelBuilder.Entity<Location>().ToTable("Location");
+            modelBuilder.Entity<Room>().ToTable("Room");
+            modelBuilder.Entity<Owner>().ToTable("Owner");
+            modelBuilder.Entity<Brand>().ToTable("Brand");
+            modelBuilder.Entity<Software>().ToTable("Software");
+            modelBuilder.Entity<Hardware>().ToTable("Hardware");
+
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<ITequipment.Models.HW_SW> HW_SW { get; set; }
     }
 }
