@@ -15,7 +15,9 @@ namespace ITequipment.Models
     {
 
         public string Version { get; set; }
+        [DataType(DataType.MultilineText)]
 		public string Comments { get; set; }
+        [Required]
         public Status Status { get; set; }
         [Key]
         public int HardwareId { get; set; }

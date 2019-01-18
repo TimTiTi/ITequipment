@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ITequipment.Models
 {
@@ -16,19 +17,32 @@ namespace ITequipment.Models
 	
     public class Hardware
     {
+        [Key]
         public int HardwareId { get; set; }
+        [Required]
+        [StringLength(128)]
         public string Serial { get; set; }
-		public string Name { get; set; }
+        [Required]
+        [StringLength(255)]
+        public string Name { get; set; }
+        [StringLength(255)]
         public string Purpose { get; set; }
-		public string Specs { get; set; }		
-		public string AdditionalInfo { get; set; }
-		public DateTime AcquiredDate { get; set; }
-		public Condition Condition { get; set; }
+        [DataType(DataType.MultilineText)]
+        [StringLength(4096)]
+        public string Specs { get; set; }
+        [DataType(DataType.MultilineText)]
+        [StringLength(4096)]
+        public string AdditionalInfo { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime AcquiredDate { get; set; }
+        [Required]
+        public Condition Condition { get; set; }
 
         //public int BrandId { get; set; }
         public virtual Brand Brand { get; set; }
 		
-		//public int RoomId { get; set; }
+		public int RoomId { get; set; }
+        [Required]
         public virtual Room Room { get; set; }
 		
 		//public int OwnerId { get; set; }
