@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace ITequipment.Models
 {
 	
-	public enum Status
+	public enum Status: byte
 	{
 		Active,
 		Inactive
@@ -13,12 +13,16 @@ namespace ITequipment.Models
 	
     public class HW_SW
     {
-
+        [StringLength(255)]
         public string Version { get; set; }
+
         [DataType(DataType.MultilineText)]
-		public string Comments { get; set; }
+        [StringLength(4096)]
+        public string Comments { get; set; }
+
         [Required]
         public Status Status { get; set; }
+
         [Key]
         public int HardwareId { get; set; }
         public virtual Hardware Hardware { get; set; }		

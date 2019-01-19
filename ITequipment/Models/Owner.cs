@@ -9,13 +9,18 @@ namespace ITequipment.Models
     {
         [Key]
         public int OwnerId { get; set; }
+
         [Required]
         [StringLength(255)]
         public string FullName { get; set; }
+
         [DataType(DataType.EmailAddress)]
-		public string Email { get; set; }
+        [StringLength(128)]
+        public string Email { get; set; }
+
         [DataType(DataType.PhoneNumber)]
-		public string Phone { get; set; }
+        [StringLength(64)]
+        public string Phone { get; set; }
 		
         public virtual ICollection<Hardware> Hardware { get; set; }
     }
