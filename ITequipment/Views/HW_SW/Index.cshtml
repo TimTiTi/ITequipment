@@ -49,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.Software.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-hid="@item.HardwareId" asp-route-sid="@item.SoftwareId">Edit</a> |
-                <a asp-action="Details" asp-route-hid="@item.HardwareId" asp-route-sid="@item.SoftwareId">Details</a> |
-                <a asp-action="Delete" asp-route-hid="@item.HardwareId"asp-route-sid="@item.SoftwareId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.HardwareId" asp-route-id2="@item.SoftwareId" >Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HardwareId" asp-route-id2="@item.SoftwareId" >Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HardwareId" asp-route-id2="@item.SoftwareId" >Delete</a>
             </td>
         </tr>
 }

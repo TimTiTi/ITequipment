@@ -17,13 +17,15 @@ namespace ITequipment.Controllers
         public HardwareController(ApplicationDbContext context)
         {
             _context = context;
+
         }
 
         // GET: Hardware
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Hardwares.Include(h => h.Brand).Include(h => h.Owner).Include(h => h.Room);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await applicationDbContext
+                .OrderBy(h => h.Name).ThenBy(h => h.Room).ToListAsync());
         }
 
         // GET: Hardware/Details/5

@@ -19,22 +19,29 @@ namespace ITequipment.Models
     {
         [Key]
         public int HardwareId { get; set; }
+
         [Required]
         [StringLength(128)]
         public string Serial { get; set; }
+
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
+
         [StringLength(1024)]
         public string Purpose { get; set; }
+
         [DataType(DataType.MultilineText)]
         [StringLength(4096)]
         public string Specs { get; set; }
+
         [DataType(DataType.MultilineText)]
         [StringLength(2048)]
         public string AdditionalInfo { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime AcquiredDate { get; set; }
+
         [Required]
         public Condition Condition { get; set; }
 
@@ -45,6 +52,7 @@ namespace ITequipment.Models
 		public int RoomId { get; set; }
         [Required]
         public virtual Room Room { get; set; }
+
         [DisplayFormat(NullDisplayText = "Unknown")]
         public int? OwnerId { get; set; }
         public virtual Owner Owner { get; set; }

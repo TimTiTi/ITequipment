@@ -82,7 +82,7 @@ namespace ITequipment.Data
             var owners = new Owner[]
             {
                 new Owner{ FullName="Sveučilišni centar za stručne studije", Email="oss@unist.hr", Phone="+38521346886" },
-                new Owner{ FullName="Svučilište u Splitu", },
+                new Owner{ FullName="Sveučilište u Splitu", },
             };
 
             foreach (var owner in owners)
@@ -100,6 +100,7 @@ namespace ITequipment.Data
                 new Software{ BrandId=1, LicenceType=LicenceType.Proprietary, Name="Office" },
                 new Software{ BrandId=1, LicenceType=LicenceType.Proprietary, Name="Azure" },
                 new Software{ LicenceType=LicenceType.PublicDomain, Name="Linux Ubuntu" },
+                new Software{ LicenceType=LicenceType.PublicDomain, Name="Notepad++" },
             };
 
             foreach (var software in softwares)
@@ -139,9 +140,12 @@ namespace ITequipment.Data
                 new HW_SW{ HardwareId=5, SoftwareId=4, Version="10.0.1234", Status=Status.Active },
                 new HW_SW{ HardwareId=5, SoftwareId=5, Version="19.0.123", Status=Status.Active },
                 new HW_SW{ HardwareId=5, SoftwareId=1, Version="19.0.3", Status=Status.Active },
-                new HW_SW{ HardwareId=6, SoftwareId=4, Version="10.0.1234", Status=Status.Active },
-                new HW_SW{ HardwareId=6, SoftwareId=5, Version="19.0.123", Status=Status.Active },
-                new HW_SW{ HardwareId=6, SoftwareId=1, Version="19.0.3", Status=Status.Active },
+                new HW_SW{ HardwareId=5, SoftwareId=8, Version="10.0.1234", Status=Status.Active },
+                new HW_SW{ HardwareId=6, SoftwareId=4, Version="12.0.1234", Status=Status.Active },
+                new HW_SW{ HardwareId=6, SoftwareId=5, Version="44.0.123", Status=Status.Active },
+                new HW_SW{ HardwareId=6, SoftwareId=1, Version="23.0.3", Status=Status.Active },
+                new HW_SW{ HardwareId=10, SoftwareId=8, Version="3.0.123", Status=Status.Active },
+                new HW_SW{ HardwareId=11, SoftwareId=8, Version="3.0.3", Status=Status.Active },
             };
 
             foreach (var hw_sw in hw_sws)

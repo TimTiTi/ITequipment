@@ -23,7 +23,8 @@ namespace ITequipment.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Softwares.Include(s => s.Brand);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await applicationDbContext
+                .OrderBy(s => s.Name).ThenBy(s => s.LicenceType).ToListAsync());
         }
 
         // GET: Software/Details/5

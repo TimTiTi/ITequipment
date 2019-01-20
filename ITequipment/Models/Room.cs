@@ -24,6 +24,8 @@ namespace ITequipment.Models
 
         public int LocationId { get; set; }
         public virtual Location Location { get; set; }
+
+        public virtual ICollection<Hardware> Hardware { get; set; }
     }
 }
 

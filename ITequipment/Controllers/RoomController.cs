@@ -36,6 +36,12 @@ namespace ITequipment.Controllers
 
             var room = await _context.Rooms
                 .Include(r => r.Location)
+                .Include(h => h.Hardware)
+                    .ThenInclude(b => b.Brand)
+                .Include(h => h.Hardware)
+                    .ThenInclude(s => s.HW_SWs)
+                    .ThenInclude(s => s.Software)
+                    .ThenInclude(b => b.Brand)                
                 .FirstOrDefaultAsync(m => m.RoomId == id);
             if (room == null)
             {

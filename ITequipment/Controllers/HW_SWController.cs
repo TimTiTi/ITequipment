@@ -27,9 +27,9 @@ namespace ITequipment.Controllers
         }
 
         // GET: HW_SW/Details/5
-        public async Task<IActionResult> Details(int? hid, int? sid)
+        public async Task<IActionResult> Details(int? id, int? id2)
         {
-            if (hid == null || sid == null)
+            if (id == null || id2 == null)
             {
                 return NotFound();
             }
@@ -37,7 +37,7 @@ namespace ITequipment.Controllers
             var hW_SW = await _context.HW_SW
                 .Include(h => h.Hardware)
                 .Include(h => h.Software)
-                .FirstOrDefaultAsync(m => m.HardwareId == hid && m.SoftwareId == sid);
+                .FirstOrDefaultAsync(m => m.HardwareId == id && m.SoftwareId == id2);
             if (hW_SW == null)
             {
                 return NotFound();
@@ -73,14 +73,14 @@ namespace ITequipment.Controllers
         }
 
         // GET: HW_SW/Edit/5
-        public async Task<IActionResult> Edit(int? hid, int? sid)
+        public async Task<IActionResult> Edit(int? id, int? id2)
         {
-            if (hid == null || sid == null)
+            if (id == null || id2 == null)
             {
                 return NotFound();
             }
 
-            var hW_SW = await _context.HW_SW.FindAsync(hid, sid);
+            var hW_SW = await _context.HW_SW.FindAsync(id, id2);
             if (hW_SW == null)
             {
                 return NotFound();
@@ -95,11 +95,36 @@ namespace ITequipment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Version,Comments,Status,HardwareId,SoftwareId")] HW_SW hW_SW)
+        public async Task<IActionResult> Edit(int id, int id2, [Bind("Version,Comments,Status,HardwareId,SoftwareId")] HW_SW hW_SW)
         {
-            if (id != hW_SW.HardwareId)
+            if (id == hW_SW.HardwareId && id2 == hW_SW.SoftwareId)
             {
-                return NotFound();
+
+                if (hW_SW == null)
+                {
+                    return NotFound();
+                }
+
+            }
+            else
+            {
+                // here we will check if we already have HW_SW with same Id, if not we can proceed with an update
+                var exist =  _context.HW_SW.Any(m => m.HardwareId == hW_SW.HardwareId && m.SoftwareId == hW_SW.SoftwareId);
+                if (exist)
+                {
+                    ModelState.AddModelError("HardwareId", "Already in database!");
+                    ModelState.AddModelError("SoftwareId", "Already in database!");                    
+                    //return View(hW_SW);
+                    //return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    var hW_SW_del = await _context.HW_SW.FindAsync(id, id2);
+                    _context.HW_SW.Remove(hW_SW_del);                    
+                    _context.Add(hW_SW);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
 
             if (ModelState.IsValid)
@@ -128,9 +153,9 @@ namespace ITequipment.Controllers
         }
 
         // GET: HW_SW/Delete/5
-        public async Task<IActionResult> Delete(int? hid, int? sid)
+        public async Task<IActionResult> Delete(int? id, int? id2)
         {
-            if (hid == null || sid == null)
+            if (id == null || id2 == null)
             {
                 return NotFound();
             }
@@ -138,7 +163,7 @@ namespace ITequipment.Controllers
             var hW_SW = await _context.HW_SW
                 .Include(h => h.Hardware)
                 .Include(h => h.Software)
-                .FirstOrDefaultAsync(m => m.HardwareId == hid && m.SoftwareId == sid);
+                .FirstOrDefaultAsync(m => m.HardwareId == id && m.SoftwareId == id2);
             if (hW_SW == null)
             {
                 return NotFound();
@@ -150,9 +175,9 @@ namespace ITequipment.Controllers
         // POST: HW_SW/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
+        public async Task<IActionResult> DeleteConfirmed(int? id, int? id2)
         {
-            var hW_SW = await _context.HW_SW.FindAsync(id);
+            var hW_SW = await _context.HW_SW.FindAsync(id, id2);
             _context.HW_SW.Remove(hW_SW);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

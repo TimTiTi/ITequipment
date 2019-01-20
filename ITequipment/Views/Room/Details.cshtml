@@ -40,7 +40,121 @@
         <dd>
             @Html.DisplayFor(model => model.Location.Address)
         </dd>
+        <dt>
+            Hardware count
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hardware.Count)
+        </dd>
+        <dt>
+            Software count
+        </dt>
+        <dd>
+            @Model?.Hardware?.SelectMany(x => x.HW_SWs).Count()
+        </dd>
     </dl>
+
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Serial
+            </th>
+            <th>
+                Brand
+            </th>
+            <th>
+                Condition
+            </th>
+            <th>
+                Acquired Date
+            </th>
+            <th>
+                Specs
+            </th>
+            <th>
+                Purpose
+            </th>
+            <th>
+                Software installed
+            </th>
+            <th>
+                Software list
+            </th>
+        </tr>
+        @foreach (var item in Model?.Hardware?.OrderBy(h => h.Name))
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Serial
+                </td>
+                <td>
+                    @item.Brand.Name
+                </td>
+                <td>
+                    @item.Condition
+                </td>
+                <td>
+                    @item.AcquiredDate.ToShortDateString()
+                </td>
+                <td>
+                    @item.Specs
+                </td>
+                <td>
+                    @item.Purpose
+                </td>
+                <td>
+                    @item.HW_SWs.Count
+                </td>
+                <td>
+                    @if (item.HW_SWs.Count > 0)
+                    { 
+                    <table class="table-condensed">
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Brand
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Version
+                            </th>
+                        </tr>
+                        @foreach (var sw in item.HW_SWs.OrderBy(x => x.Software.Name))
+                        {
+                            <tr>
+                                <td>
+                                    @sw.Software.Name
+                                </td>
+
+                                <td>
+                                    @sw.Software?.Brand?.Name
+                                </td>
+
+                                <td>
+                                    @sw.Status
+                                </td>
+
+                                <td>
+                                    @sw.Version
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.RoomId">Edit</a> |
