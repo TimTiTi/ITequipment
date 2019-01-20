@@ -38,14 +38,15 @@ namespace ITequipment.Models
         [Required]
         public Condition Condition { get; set; }
 
+        [DisplayFormat(NullDisplayText = "Unknown")]
         public int? BrandId { get; set; }
         public virtual Brand Brand { get; set; }
 		
 		public int RoomId { get; set; }
         [Required]
         public virtual Room Room { get; set; }
-		
-		public int? OwnerId { get; set; }
+        [DisplayFormat(NullDisplayText = "Unknown")]
+        public int? OwnerId { get; set; }
         public virtual Owner Owner { get; set; }
 
         public virtual ICollection<HW_SW> HW_SWs { get; set; }

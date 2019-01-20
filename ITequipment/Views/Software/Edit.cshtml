@@ -20,13 +20,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="Purpose" class="control-label"></label>
-                <input asp-for="Purpose" class="form-control" />
+                <textarea asp-for="Purpose" class="form-control"></textarea>
                 <span asp-validation-for="Purpose" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="LicenceType" class="control-label"></label>
-                <select asp-for="LicenceType" class="form-control"></select>
+                <select asp-for="LicenceType" class="form-control"  asp-items="Html.GetEnumSelectList<LicenceType>()"></select>
                 <span asp-validation-for="LicenceType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrandId" class="control-label"></label>
+                <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+                <span asp-validation-for="BrandId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />

@@ -22,7 +22,8 @@ namespace ITequipment.Controllers
         // GET: Hardware
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Hardwares.ToListAsync());
+            var applicationDbContext = _context.Hardwares.Include(h => h.Brand).Include(h => h.Owner).Include(h => h.Room);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Hardware/Details/5
@@ -34,6 +35,9 @@ namespace ITequipment.Controllers
             }
 
             var hardware = await _context.Hardwares
+                .Include(h => h.Brand)
+                .Include(h => h.Owner)
+                .Include(h => h.Room)
                 .FirstOrDefaultAsync(m => m.HardwareId == id);
             if (hardware == null)
             {
@@ -46,6 +50,9 @@ namespace ITequipment.Controllers
         // GET: Hardware/Create
         public IActionResult Create()
         {
+            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "Name");
+            ViewData["OwnerId"] = new SelectList(_context.Owners, "OwnerId", "FullName");
+            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "Name");
             return View();
         }
 
@@ -54,7 +61,7 @@ namespace ITequipment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HardwareId,Serial,Name,Purpose,Specs,AdditionalInfo,AcquiredDate,Condition")] Hardware hardware)
+        public async Task<IActionResult> Create([Bind("HardwareId,Serial,Name,Purpose,Specs,AdditionalInfo,AcquiredDate,Condition,BrandId,RoomId,OwnerId")] Hardware hardware)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +69,9 @@ namespace ITequipment.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "Name", hardware.BrandId);
+            ViewData["OwnerId"] = new SelectList(_context.Owners, "OwnerId", "FullName", hardware.OwnerId);
+            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "Name", hardware.RoomId);
             return View(hardware);
         }
 
@@ -78,6 +88,9 @@ namespace ITequipment.Controllers
             {
                 return NotFound();
             }
+            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "Name", hardware.BrandId);
+            ViewData["OwnerId"] = new SelectList(_context.Owners, "OwnerId", "FullName", hardware.OwnerId);
+            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "Name", hardware.RoomId);
             return View(hardware);
         }
 
@@ -86,7 +99,7 @@ namespace ITequipment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HardwareId,Serial,Name,Purpose,Specs,AdditionalInfo,AcquiredDate,Condition")] Hardware hardware)
+        public async Task<IActionResult> Edit(int id, [Bind("HardwareId,Serial,Name,Purpose,Specs,AdditionalInfo,AcquiredDate,Condition,BrandId,RoomId,OwnerId")] Hardware hardware)
         {
             if (id != hardware.HardwareId)
             {
@@ -113,6 +126,9 @@ namespace ITequipment.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "Name", hardware.BrandId);
+            ViewData["OwnerId"] = new SelectList(_context.Owners, "OwnerId", "FullName", hardware.OwnerId);
+            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "Name", hardware.RoomId);
             return View(hardware);
         }
 
@@ -125,6 +141,9 @@ namespace ITequipment.Controllers
             }
 
             var hardware = await _context.Hardwares
+                .Include(h => h.Brand)
+                .Include(h => h.Owner)
+                .Include(h => h.Room)
                 .FirstOrDefaultAsync(m => m.HardwareId == id);
             if (hardware == null)
             {

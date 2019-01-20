@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ITequipment.Models
 {
@@ -24,10 +25,12 @@ namespace ITequipment.Models
         public Status Status { get; set; }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int HardwareId { get; set; }
         public virtual Hardware Hardware { get; set; }		
         [Key]
-		public int SoftwareId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int SoftwareId { get; set; }
         public virtual Software Software { get; set; }
 		
     }

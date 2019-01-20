@@ -43,15 +43,15 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Hardware.HardwareId)
+                @Html.DisplayFor(modelItem => item.Hardware.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Software.SoftwareId)
+                @Html.DisplayFor(modelItem => item.Software.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a asp-action="Edit" asp-route-hid="@item.HardwareId" asp-route-sid="@item.SoftwareId">Edit</a> |
+                <a asp-action="Details" asp-route-hid="@item.HardwareId" asp-route-sid="@item.SoftwareId">Details</a> |
+                <a asp-action="Delete" asp-route-hid="@item.HardwareId"asp-route-sid="@item.SoftwareId">Delete</a>
             </td>
         </tr>
 }

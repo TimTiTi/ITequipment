@@ -22,7 +22,8 @@ namespace ITequipment.Controllers
         // GET: Software
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Softwares.ToListAsync());
+            var applicationDbContext = _context.Softwares.Include(s => s.Brand);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Software/Details/5
@@ -34,6 +35,7 @@ namespace ITequipment.Controllers
             }
 
             var software = await _context.Softwares
+                .Include(s => s.Brand)
                 .FirstOrDefaultAsync(m => m.SoftwareId == id);
             if (software == null)
             {
@@ -46,6 +48,7 @@ namespace ITequipment.Controllers
         // GET: Software/Create
         public IActionResult Create()
         {
+            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "Name");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace ITequipment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SoftwareId,Name,Purpose,LicenceType")] Software software)
+        public async Task<IActionResult> Create([Bind("SoftwareId,Name,Purpose,LicenceType,BrandId")] Software software)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace ITequipment.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "Name", software.BrandId);
             return View(software);
         }
 
@@ -78,6 +82,7 @@ namespace ITequipment.Controllers
             {
                 return NotFound();
             }
+            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "Name", software.BrandId);
             return View(software);
         }
 
@@ -86,7 +91,7 @@ namespace ITequipment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SoftwareId,Name,Purpose,LicenceType")] Software software)
+        public async Task<IActionResult> Edit(int id, [Bind("SoftwareId,Name,Purpose,LicenceType,BrandId")] Software software)
         {
             if (id != software.SoftwareId)
             {
@@ -113,6 +118,7 @@ namespace ITequipment.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "Name", software.BrandId);
             return View(software);
         }
 
@@ -125,6 +131,7 @@ namespace ITequipment.Controllers
             }
 
             var software = await _context.Softwares
+                .Include(s => s.Brand)
                 .FirstOrDefaultAsync(m => m.SoftwareId == id);
             if (software == null)
             {

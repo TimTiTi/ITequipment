@@ -8,11 +8,14 @@ namespace ITequipment.Models
 
 	public enum LicenceType: byte
 	{
-		PublicDomain,
-		NonProtective,
+        [Display(Name = "Public domain")]
+        PublicDomain,
+        [Display(Name = "non-protective")]
+        NonProtective,
 		Protective,
 		Proprietary,
-		TradeSecret
+        [Display(Name = "Trade secret")]
+        TradeSecret
 	}
 	
     public class Software

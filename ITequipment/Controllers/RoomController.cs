@@ -22,7 +22,8 @@ namespace ITequipment.Controllers
         // GET: Room
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Rooms.ToListAsync());
+            var applicationDbContext = _context.Rooms.Include(r => r.Location);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Room/Details/5
@@ -34,6 +35,7 @@ namespace ITequipment.Controllers
             }
 
             var room = await _context.Rooms
+                .Include(r => r.Location)
                 .FirstOrDefaultAsync(m => m.RoomId == id);
             if (room == null)
             {
@@ -46,6 +48,7 @@ namespace ITequipment.Controllers
         // GET: Room/Create
         public IActionResult Create()
         {
+            ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "Address");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace ITequipment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RoomId,Name,Purpose,Floor,Size")] Room room)
+        public async Task<IActionResult> Create([Bind("RoomId,Name,Purpose,Floor,Size,LocationId")] Room room)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace ITequipment.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "Address", room.LocationId);
             return View(room);
         }
 
@@ -78,6 +82,7 @@ namespace ITequipment.Controllers
             {
                 return NotFound();
             }
+            ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "Address", room.LocationId);
             return View(room);
         }
 
@@ -86,7 +91,7 @@ namespace ITequipment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RoomId,Name,Purpose,Floor,Size")] Room room)
+        public async Task<IActionResult> Edit(int id, [Bind("RoomId,Name,Purpose,Floor,Size,LocationId")] Room room)
         {
             if (id != room.RoomId)
             {
@@ -113,6 +118,7 @@ namespace ITequipment.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "Address", room.LocationId);
             return View(room);
         }
 
@@ -125,6 +131,7 @@ namespace ITequipment.Controllers
             }
 
             var room = await _context.Rooms
+                .Include(r => r.Location)
                 .FirstOrDefaultAsync(m => m.RoomId == id);
             if (room == null)
             {

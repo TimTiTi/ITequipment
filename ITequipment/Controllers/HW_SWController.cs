@@ -27,9 +27,9 @@ namespace ITequipment.Controllers
         }
 
         // GET: HW_SW/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? hid, int? sid)
         {
-            if (id == null)
+            if (hid == null || sid == null)
             {
                 return NotFound();
             }
@@ -37,7 +37,7 @@ namespace ITequipment.Controllers
             var hW_SW = await _context.HW_SW
                 .Include(h => h.Hardware)
                 .Include(h => h.Software)
-                .FirstOrDefaultAsync(m => m.HardwareId == id);
+                .FirstOrDefaultAsync(m => m.HardwareId == hid && m.SoftwareId == sid);
             if (hW_SW == null)
             {
                 return NotFound();
@@ -49,8 +49,8 @@ namespace ITequipment.Controllers
         // GET: HW_SW/Create
         public IActionResult Create()
         {
-            ViewData["HardwareId"] = new SelectList(_context.Hardwares, "HardwareId", "HardwareId");
-            ViewData["SoftwareId"] = new SelectList(_context.Softwares, "SoftwareId", "SoftwareId");
+            ViewData["HardwareId"] = new SelectList(_context.Hardwares, "HardwareId", "Name");
+            ViewData["SoftwareId"] = new SelectList(_context.Softwares, "SoftwareId", "Name");
             return View();
         }
 
@@ -67,26 +67,26 @@ namespace ITequipment.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HardwareId"] = new SelectList(_context.Hardwares, "HardwareId", "HardwareId", hW_SW.HardwareId);
-            ViewData["SoftwareId"] = new SelectList(_context.Softwares, "SoftwareId", "SoftwareId", hW_SW.SoftwareId);
+            ViewData["HardwareId"] = new SelectList(_context.Hardwares, "HardwareId", "Name", hW_SW.HardwareId);
+            ViewData["SoftwareId"] = new SelectList(_context.Softwares, "SoftwareId", "Name", hW_SW.SoftwareId);
             return View(hW_SW);
         }
 
         // GET: HW_SW/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? hid, int? sid)
         {
-            if (id == null)
+            if (hid == null || sid == null)
             {
                 return NotFound();
             }
 
-            var hW_SW = await _context.HW_SW.FindAsync(id);
+            var hW_SW = await _context.HW_SW.FindAsync(hid, sid);
             if (hW_SW == null)
             {
                 return NotFound();
             }
-            ViewData["HardwareId"] = new SelectList(_context.Hardwares, "HardwareId", "HardwareId", hW_SW.HardwareId);
-            ViewData["SoftwareId"] = new SelectList(_context.Softwares, "SoftwareId", "SoftwareId", hW_SW.SoftwareId);
+            ViewData["HardwareId"] = new SelectList(_context.Hardwares, "HardwareId", "Name", hW_SW.HardwareId);
+            ViewData["SoftwareId"] = new SelectList(_context.Softwares, "SoftwareId", "Name", hW_SW.SoftwareId);
             return View(hW_SW);
         }
 
@@ -111,7 +111,7 @@ namespace ITequipment.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!HW_SWExists(hW_SW.HardwareId))
+                    if (!HW_SWExists(hW_SW.HardwareId, hW_SW.SoftwareId))
                     {
                         return NotFound();
                     }
@@ -122,15 +122,15 @@ namespace ITequipment.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HardwareId"] = new SelectList(_context.Hardwares, "HardwareId", "HardwareId", hW_SW.HardwareId);
-            ViewData["SoftwareId"] = new SelectList(_context.Softwares, "SoftwareId", "SoftwareId", hW_SW.SoftwareId);
+            ViewData["HardwareId"] = new SelectList(_context.Hardwares, "HardwareId", "Name", hW_SW.HardwareId);
+            ViewData["SoftwareId"] = new SelectList(_context.Softwares, "SoftwareId", "Name", hW_SW.SoftwareId);
             return View(hW_SW);
         }
 
         // GET: HW_SW/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? hid, int? sid)
         {
-            if (id == null)
+            if (hid == null || sid == null)
             {
                 return NotFound();
             }
@@ -138,7 +138,7 @@ namespace ITequipment.Controllers
             var hW_SW = await _context.HW_SW
                 .Include(h => h.Hardware)
                 .Include(h => h.Software)
-                .FirstOrDefaultAsync(m => m.HardwareId == id);
+                .FirstOrDefaultAsync(m => m.HardwareId == hid && m.SoftwareId == sid);
             if (hW_SW == null)
             {
                 return NotFound();
@@ -150,7 +150,7 @@ namespace ITequipment.Controllers
         // POST: HW_SW/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             var hW_SW = await _context.HW_SW.FindAsync(id);
             _context.HW_SW.Remove(hW_SW);
@@ -158,9 +158,9 @@ namespace ITequipment.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool HW_SWExists(int id)
+        private bool HW_SWExists(int? hid, int? sid)
         {
-            return _context.HW_SW.Any(e => e.HardwareId == id);
+            return _context.HW_SW.Any(e => e.HardwareId == hid && e.SoftwareId == sid);
         }
     }
 }
