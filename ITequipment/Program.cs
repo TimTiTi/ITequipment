@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
 
 namespace ITequipment
 {
@@ -26,7 +27,8 @@ namespace ITequipment
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    DbInitializer.Initialize(context);
+                    var um = services.GetRequiredService<UserManager<IdentityUser>>();
+                    DbInitializer.Initialize(context, um);
                 }
                 catch (Exception ex)
                 {
