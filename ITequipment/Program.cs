@@ -28,7 +28,8 @@ namespace ITequipment
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
                     var um = services.GetRequiredService<UserManager<IdentityUser>>();
-                    DbInitializer.Initialize(context, um);
+                    var rm = services.GetRequiredService<RoleManager<IdentityRole>>();
+                    DbInitializer.Initialize(context, um, rm);
                 }
                 catch (Exception ex)
                 {

@@ -9,7 +9,7 @@ namespace ITequipment.Data
 {
     public class DbInitializer
     {
-        public static void Initialize(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public static async void Initialize(ApplicationDbContext context, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             context.Database.EnsureCreated();
 
@@ -157,40 +157,68 @@ namespace ITequipment.Data
 
             var roles = new IdentityRole[]
            {
-                new IdentityRole{ Id="1", Name= "Admin", NormalizedName="ADMIN"},
-                new IdentityRole{ Id="2", Name= "PowerUser", NormalizedName="POWERUSER"},
-                new IdentityRole{ Id="3", Name= "User", NormalizedName="USER"},
+                new IdentityRole{ Name= "Admin", NormalizedName="ADMIN"},
+                new IdentityRole{ Name= "PowerUser", NormalizedName="POWERUSER"},
+                new IdentityRole{ Name= "User", NormalizedName="USER"},
 
            };
 
             foreach (var role in roles)
             {
-                context.Roles.Add(role);                
-            }
-            context.SaveChanges();    
-            
-            var users = new IdentityUser[]
+                roleManager.CreateAsync(role).Wait();
+            }            
+
+            var user = new IdentityUser
             {
-                new IdentityUser{ Id="1", Email="admin@oss.com", UserName="Admin", NormalizedUserName="ADMIN", PhoneNumber="+3852345123", NormalizedEmail="admin@oss.com".ToUpper()},
-                new IdentityUser{ Id="2", Email="power_user@oss.com", UserName="PowerUser", NormalizedUserName="POWERUSER", PhoneNumber="+3852345123", NormalizedEmail="power_user@oss.com".ToUpper()},
-                new IdentityUser{ Id="3", Email="user@oss.com", UserName="User", NormalizedUserName="USER", PhoneNumber="+3852345123", NormalizedEmail="user@oss.com".ToUpper()},                
+                UserName = "admin@oss.com",
+                Email = "admin@oss.com",
+                EmailConfirmed = true
+            };
+            userManager.CreateAsync(user, "Opatija-1").Wait();
+            userManager.AddToRoleAsync(user, "Admin").Wait();
+
+            user = new IdentityUser
+            {
+                UserName = "Support",
+                Email = "support@oss.com",
+                EmailConfirmed = true
+            };
+            userManager.CreateAsync(user, "Opatija-1").Wait();
+            userManager.AddToRoleAsync(user, "PowerUser").Wait();
+
+            user = new IdentityUser
+            {
+                UserName = "user@oss.com",
+                Email = "user@oss.com",
+                EmailConfirmed = true
             };
 
-            //var user = new IdentityUser();
-            //user.UserName = "default";
-            //user.Email = "default@default.com";
+            userManager.CreateAsync(user, "Opatija-1").Wait();
+            userManager.AddToRoleAsync(user, "User").Wait();
 
-            //string userPWD = "somepassword";
+            // /*DEAD CODE BELOW*/
+            // var users = new IdentityUser[]
+            // {
+            //     new IdentityUser{ Id="1", Email="admin@oss.com", UserName="Admin", NormalizedUserName="ADMIN", PhoneNumber="+3852345123", NormalizedEmail="admin@oss.com".ToUpper()},
+            //     new IdentityUser{ Id="2", Email="power_user@oss.com", UserName="PowerUser", NormalizedUserName="POWERUSER", PhoneNumber="+3852345123", NormalizedEmail="power_user@oss.com".ToUpper()},
+            //     new IdentityUser{ Id="3", Email="user@oss.com", UserName="User", NormalizedUserName="USER", PhoneNumber="+3852345123", NormalizedEmail="user@oss.com".ToUpper()},                
+            // };
 
-            //IdentityResult chkUser = await userManager.CreateAsync(user, userPWD).;
+            // //var user = new IdentityUser();
+            // //user.UserName = "default";
+            // //user.Email = "default@default.com";
 
-            foreach (var user in users)
-            {
-                userManager.CreateAsync(user, "Opatija 1").Wait();                
-                //userManager.AddToRoleAsync(user, "Admin").Wait();
-                context.Users.Add(user);
-            }
-            context.SaveChanges();
+            // //string userPWD = "somepassword";
+
+            // //IdentityResult chkUser = await userManager.CreateAsync(user, userPWD).;
+
+            // foreach (var user in users)
+            // {
+            //     userManager.CreateAsync(user, "Opatija 1").Wait();                
+            //     //userManager.AddToRoleAsync(user, "Admin").Wait();
+            //     context.Users.Add(user);
+            // }
+            // context.SaveChanges();
 
         }
     }

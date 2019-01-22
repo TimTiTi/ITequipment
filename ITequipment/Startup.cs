@@ -38,11 +38,11 @@ namespace ITequipment
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddMvc().AddRazorPagesOptions(options => {
-                options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "");
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                .AddRoles<IdentityRole>()                
+                .AddEntityFrameworkStores<ApplicationDbContext>();            
+            //services.AddMvc().AddRazorPagesOptions(options => {
+            //    options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "");
+            //}).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,9 +71,6 @@ namespace ITequipment
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}/{id2?}");
 
-                //routes.MapRoute(
-                //    name: "many",
-                //    template: "{controller=HW_SW}/{action=Index}/{hid?}/{sid?}");
             });
         }
     }
