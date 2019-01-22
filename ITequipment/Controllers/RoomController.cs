@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ITequipment.Data;
 using ITequipment.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITequipment.Controllers
 {
@@ -27,6 +28,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: Room/Details/5
+        [Authorize(Roles = "Admin, PowerUser, User")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -52,6 +54,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: Room/Create
+        [Authorize(Roles = "Admin, PowerUser")]
         public IActionResult Create()
         {
             ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "Address");
@@ -76,6 +79,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: Room/Edit/5
+        [Authorize(Roles = "Admin, PowerUser")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -129,6 +133,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: Room/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
