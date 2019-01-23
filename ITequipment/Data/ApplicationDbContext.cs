@@ -40,8 +40,18 @@ namespace ITequipment.Data
 
             modelBuilder.Entity<Location>().ToTable("Location");
             modelBuilder.Entity<Room>().ToTable("Room");
-            modelBuilder.Entity<Owner>().ToTable("Owner");
-            modelBuilder.Entity<Brand>().ToTable("Brand");
+            modelBuilder.Entity<Owner>().ToTable("Owner")
+              .HasMany(s => s.Hardware)
+                .WithOne(x => x.Owner)
+                .OnDelete(DeleteBehavior.SetNull); ;
+            modelBuilder.Entity<Brand>().ToTable("Brand")
+                .HasMany(h => h.Hardware)                
+                .WithOne(x => x.Brand)                
+                .OnDelete(DeleteBehavior.SetNull);
+            modelBuilder.Entity<Brand>()
+                .HasMany(s => s.Software)
+                .WithOne(x => x.Brand)
+                .OnDelete(DeleteBehavior.SetNull); ;
             modelBuilder.Entity<Software>().ToTable("Software");
             modelBuilder.Entity<Hardware>().ToTable("Hardware");
 

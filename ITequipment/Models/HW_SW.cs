@@ -18,7 +18,7 @@ namespace ITequipment.Models
         public string Version { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(4096)]
+        [StringLength(2047)]
         public string Comments { get; set; }
 
         [Required]

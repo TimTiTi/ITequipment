@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Database" Category="Database" Bounds="37.6823429541596,-844.294926733889,1206.78689054664,996.900766409734" Group="Expanded" Label="Data Source=(localdb)\mssqllocaldb;Initial Catalog=ITequipment1;Integrated Security=True" UseManualLocation="True" />
+    <Node Id="dbo" Category="Schema" Bounds="57.682319919953,-804.294834293452,1166.78691358085,936.900558251068" Group="Expanded" Label="dbo" />
+    <Node Id="dbo.AspNetRoleClaims" Category="Table" Bounds="78.8007824692895,87.6056239576156,160.776666666667,25" Group="Collapsed" Label="dbo.AspNetRoleClaims" />
+    <Node Id="dbo.AspNetRoleClaims_ClaimType" Category="Field Optional" Description="ntext" Label="ClaimType" />
+    <Node Id="dbo.AspNetRoleClaims_ClaimValue" Category="Field Optional" Description="ntext" Label="ClaimValue" />
+    <Node Id="dbo.AspNetRoleClaims_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="dbo.AspNetRoleClaims_RoleId" Category="Field Foreign" Description="nvarchar(450)" Label="RoleId" />
+    <Node Id="dbo.AspNetRoles" Category="Table" Bounds="271.069115802622,31.6057021168454,131.09,24.9999999999999" Group="Collapsed" Label="dbo.AspNetRoles" />
+    <Node Id="dbo.AspNetRoles_ConcurrencyStamp" Category="Field Optional" Description="ntext" Label="ConcurrencyStamp" />
+    <Node Id="dbo.AspNetRoles_Id" Category="Field Primary" Description="nvarchar(450)" Label="Id" />
+    <Node Id="dbo.AspNetRoles_Name" Category="Field Optional" Description="nvarchar(256)" Label="Name" />
+    <Node Id="dbo.AspNetRoles_NormalizedName" Category="Field Optional" Description="nvarchar(256)" Label="NormalizedName" />
+    <Node Id="dbo.AspNetUserClaims" Category="Table" Bounds="78.4274491359574,-24.3943220974787,161.523333333333,25" Group="Collapsed" Label="dbo.AspNetUserClaims" />
+    <Node Id="dbo.AspNetUserClaims_ClaimType" Category="Field Optional" Description="ntext" Label="ClaimType" />
+    <Node Id="dbo.AspNetUserClaims_ClaimValue" Category="Field Optional" Description="ntext" Label="ClaimValue" />
+    <Node Id="dbo.AspNetUserClaims_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="dbo.AspNetUserClaims_UserId" Category="Field Foreign" Description="nvarchar(450)" Label="UserId" />
+    <Node Id="dbo.AspNetUserLogins" Category="Table" Bounds="78.5491158023992,-80.3943220974789,161.28,25.0000000000001" Group="Collapsed" Label="dbo.AspNetUserLogins" />
+    <Node Id="dbo.AspNetUserLogins_LoginProvider" Category="Field Primary" Description="nvarchar(450)" Label="LoginProvider" />
+    <Node Id="dbo.AspNetUserLogins_ProviderDisplayName" Category="Field Optional" Description="ntext" Label="ProviderDisplayName" />
+    <Node Id="dbo.AspNetUserLogins_ProviderKey" Category="Field Primary" Description="nvarchar(450)" Label="ProviderKey" />
+    <Node Id="dbo.AspNetUserLogins_UserId" Category="Field Foreign" Description="nvarchar(450)" Label="UserId" />
+    <Node Id="dbo.AspNetUserRoles" Category="Table" Bounds="81.7507824692896,31.6056239576157,154.876666666667,24.9999999999999" Group="Collapsed" Label="dbo.AspNetUserRoles" />
+    <Node Id="dbo.AspNetUserRoles_RoleId" Category="Field Primary" Description="nvarchar(450)" Label="RoleId" />
+    <Node Id="dbo.AspNetUserRoles_UserId" Category="Field Primary" Description="nvarchar(450)" Label="UserId" />
+    <Node Id="dbo.AspNetUserTokens" Category="Table" Bounds="77.6824491359562,-136.394322097479,163.013333333333,25" Group="Collapsed" Label="dbo.AspNetUserTokens" />
+    <Node Id="dbo.AspNetUserTokens_LoginProvider" Category="Field Primary" Description="nvarchar(450)" Label="LoginProvider" />
+    <Node Id="dbo.AspNetUserTokens_Name" Category="Field Primary" Description="nvarchar(450)" Label="Name" />
+    <Node Id="dbo.AspNetUserTokens_UserId" Category="Field Primary" Description="nvarchar(450)" Label="UserId" />
+    <Node Id="dbo.AspNetUserTokens_Value" Category="Field Optional" Description="ntext" Label="Value" />
+    <Node Id="dbo.AspNetUsers" Category="Table" Bounds="270.695782469289,-24.3942978831548,131.836666666667,25" Group="Collapsed" Label="dbo.AspNetUsers" />
+    <Node Id="dbo.AspNetUsers_AccessFailedCount" Category="Field" Description="int" Label="AccessFailedCount" />
+    <Node Id="dbo.AspNetUsers_ConcurrencyStamp" Category="Field Optional" Description="ntext" Label="ConcurrencyStamp" />
+    <Node Id="dbo.AspNetUsers_Email" Category="Field Optional" Description="nvarchar(256)" Label="Email" />
+    <Node Id="dbo.AspNetUsers_EmailConfirmed" Category="Field" Description="bit" Label="EmailConfirmed" />
+    <Node Id="dbo.AspNetUsers_Id" Category="Field Primary" Description="nvarchar(450)" Label="Id" />
+    <Node Id="dbo.AspNetUsers_LockoutEnabled" Category="Field" Description="bit" Label="LockoutEnabled" />
+    <Node Id="dbo.AspNetUsers_LockoutEnd" Category="Field Optional" Description="datetime" Label="LockoutEnd" />
+    <Node Id="dbo.AspNetUsers_NormalizedEmail" Category="Field Optional" Description="nvarchar(256)" Label="NormalizedEmail" />
+    <Node Id="dbo.AspNetUsers_NormalizedUserName" Category="Field Optional" Description="nvarchar(256)" Label="NormalizedUserName" />
+    <Node Id="dbo.AspNetUsers_PasswordHash" Category="Field Optional" Description="ntext" Label="PasswordHash" />
+    <Node Id="dbo.AspNetUsers_PhoneNumber" Category="Field Optional" Description="ntext" Label="PhoneNumber" />
+    <Node Id="dbo.AspNetUsers_PhoneNumberConfirmed" Category="Field" Description="bit" Label="PhoneNumberConfirmed" />
+    <Node Id="dbo.AspNetUsers_SecurityStamp" Category="Field Optional" Description="ntext" Label="SecurityStamp" />
+    <Node Id="dbo.AspNetUsers_TwoFactorEnabled" Category="Field" Description="bit" Label="TwoFactorEnabled" />
+    <Node Id="dbo.AspNetUsers_UserName" Category="Field Optional" Description="nvarchar(256)" Label="UserName" />
+    <Node Id="dbo.Brand" Category="Table" Bounds="733.989167657583,-764.29473807458,255.303488769531,197.880444909668" Group="Expanded" Label="dbo.Brand" />
+    <Node Id="dbo.Brand_BrandId" Category="Field Primary" Bounds="753.989089254607,-668.334556903248,61.2766666666666,25.9599999999999" Description="int" Label="BrandId" />
+    <Node Id="dbo.Brand_Contanct full name" Category="Field Optional" Bounds="753.989267477263,-612.374412860279,120.266666666667,25.96" Description="nvarchar(255)" Label="Contanct full name" />
+    <Node Id="dbo.Brand_Email" Category="Field Optional" Bounds="753.98923899419,-724.294624652271,50,25.96" Description="nvarchar(128)" Label="Email" />
+    <Node Id="dbo.Brand_Name" Category="Field" Bounds="833.989233297576,-724.294563617115,51.6966666666667,25.96" Description="nvarchar(127)" Label="Name" />
+    <Node Id="dbo.Brand_Phone" Category="Field Optional" Bounds="915.68602773117,-724.294563617115,53.6066666666666,25.96" Description="nvarchar(64)" Label="Phone" />
+    <Node Id="dbo.Brand_WebPage" Category="Field Optional" Bounds="845.265706279347,-668.334495868091,69.8299999999999,25.9599999999999" Description="nvarchar(255)" Label="WebPage" />
+    <Node Id="dbo.HW_SW" Category="Table" Bounds="77.682319919953,-764.294619852535,224.076701660156,197.8804" Group="Expanded" Label="dbo.HW_SW" />
+    <Node Id="dbo.HW_SW_Comments" Category="Field Optional" Bounds="204.399021709034,-668.334373797779,77.3599999999999,25.9599999999999" Description="ntext" Label="Comments" />
+    <Node Id="dbo.HW_SW_HardwareId" Category="Field Primary" Bounds="97.6823656217948,-612.374321307545,81.3566666666666,25.9599999999999" Description="int" Label="HardwareId" />
+    <Node Id="dbo.HW_SW_SoftwareId" Category="Field Primary" Bounds="97.682358297576,-668.334434832935,76.7166666666667,25.9599999999999" Description="int" Label="SoftwareId" />
+    <Node Id="dbo.HW_SW_Status" Category="Field" Bounds="97.6823469043468,-724.294502581959,52.1099999999999,25.96" Description="tinyint" Label="Status" />
+    <Node Id="dbo.HW_SW_Version" Category="Field Optional" Bounds="179.792320048878,-724.294502581959,58.96,25.96" Description="nvarchar(255)" Label="Version" />
+    <Node Id="dbo.Hardware" Category="Table" Bounds="331.75891449061,-536.274575483028,369.140221354167,253.840579589844" Group="Expanded" Label="dbo.Hardware" />
+    <Node Id="dbo.Hardware_AcquiredDate" Category="Field" Bounds="463.115688375701,-384.35421022356,92.4266666666667,25.96" Description="datetime" Label="AcquiredDate" />
+    <Node Id="dbo.Hardware_AdditionalInfo" Category="Field Optional" Bounds="585.54247304367,-384.354217852955,95.3566666666666,25.96" Description="nvarchar(2048)" Label="AdditionalInfo" />
+    <Node Id="dbo.Hardware_BrandId" Category="Field Foreign" Bounds="513.795607809295,-496.274467791919,61.2766666666666,25.96" Description="int" Label="BrandId" />
+    <Node Id="dbo.Hardware_Condition" Category="Field" Bounds="540.115610250701,-440.314354266529,72.0166666666667,25.96" Description="tinyint" Label="Condition" />
+    <Node Id="dbo.Hardware_HardwareId" Category="Field Primary" Bounds="351.759025778045,-384.354217852955,81.3566666666666,25.96" Description="int" Label="HardwareId" />
+    <Node Id="dbo.Hardware_Name" Category="Field" Bounds="432.098974508513,-496.274467791919,51.6966666666667,25.96" Description="nvarchar(255)" Label="Name" />
+    <Node Id="dbo.Hardware_OwnerId" Category="Field Foreign" Bounds="444.895596416065,-440.314384784107,65.22,25.96" Description="int" Label="OwnerId" />
+    <Node Id="dbo.Hardware_Purpose" Category="Field Optional" Bounds="351.75891835617,-440.314354266529,63.1366666666668,25.96" Description="nvarchar(1024)" Label="Purpose" />
+    <Node Id="dbo.Hardware_RoomId" Category="Field Foreign" Bounds="605.07234039393,-496.274406756763,61.4833333333333,25.96" Description="int" Label="RoomId" />
+    <Node Id="dbo.Hardware_Serial" Category="Field" Bounds="351.759014384816,-328.39409669817,50,25.96" Description="nvarchar(128)" Label="Serial" />
+    <Node Id="dbo.Hardware_Specs" Category="Field Optional" Bounds="351.758875224659,-496.274467791919,50.3399999999999,25.96" Description="ntext" Label="Specs" />
+    <Node Id="dbo.Location" Category="Table" Bounds="1022.38256520676,-536.294586518184,182.086668294271,197.880419421387" Group="Expanded" Label="dbo.Location" />
+    <Node Id="dbo.Location_Address" Category="Field" Bounds="1042.38255442388,-440.334373797779,62.5100000000002,25.96" Description="nvarchar(512)" Label="Address" />
+    <Node Id="dbo.Location_Country" Category="Field" Bounds="1122.38255116867,-496.29448732317,62.0866666666666,25.96" Description="nvarchar(255)" Label="Country" />
+    <Node Id="dbo.Location_LocationId" Category="Field Primary" Bounds="1042.38277740565,-384.374267901783,75.3833333333332,25.96" Description="int" Label="LocationId" />
+    <Node Id="dbo.Location_Place" Category="Field" Bounds="1042.38254954107,-496.294487323169,50,25.96" Description="nvarchar(255)" Label="Place" />
+    <Node Id="dbo.Owner" Category="Table" Bounds="758.95075244324,-308.31430468835,205.380002441406,141.920283007812" Group="Expanded" Label="dbo.Owner" />
+    <Node Id="dbo.Owner_Email" Category="Field Optional" Bounds="778.950786845753,-212.354183520679,50,25.96" Description="nvarchar(128)" Label="Email" />
+    <Node Id="dbo.Owner_FullName" Category="Field" Bounds="874.170774638721,-268.314197863941,70.1600000000001,25.96" Description="nvarchar(255)" Label="FullName" />
+    <Node Id="dbo.Owner_OwnerId" Category="Field Primary" Bounds="778.950772197315,-268.314197863941,65.22,25.96" Description="int" Label="OwnerId" />
+    <Node Id="dbo.Owner_Phone" Category="Field Optional" Bounds="858.950920309295,-212.354122485523,53.6066666666666,25.96" Description="nvarchar(64)" Label="Phone" />
+    <Node Id="dbo.Room" Category="Table" Bounds="730.899135844776,-536.294552802364,261.48342936198,197.880449938965" Group="Expanded" Label="dbo.Room" />
+    <Node Id="dbo.Room_Floor" Category="Field" Bounds="750.899273173878,-496.294426288013,50,25.96" Description="smallint" Label="Floor" />
+    <Node Id="dbo.Room_LocationId" Category="Field Foreign" Bounds="844.035853577523,-440.334343280201,75.3833333333334,25.96" Description="int" Label="LocationId" />
+    <Node Id="dbo.Room_Name" Category="Field" Bounds="750.899267477263,-384.374206866627,51.6966666666667,25.96" Description="nvarchar(100)" Label="Name" />
+    <Node Id="dbo.Room_Purpose" Category="Field Optional" Bounds="750.899177145232,-440.334312762623,63.1366666666668,25.96" Description="nvarchar(1024)" Label="Purpose" />
+    <Node Id="dbo.Room_RoomId" Category="Field Primary" Bounds="910.899244690805,-496.294456805591,61.4833333333333,25.96" Description="int" Label="RoomId" />
+    <Node Id="dbo.Room_Size" Category="Field Optional" Bounds="830.899273173878,-496.294395770435,50,25.96" Description="bigint" Label="Size" />
+    <Node Id="dbo.Software" Category="Table" Bounds="411.402399578657,-764.294732343379,209.853393241687,197.880450805664" Group="Expanded" Label="dbo.Software" />
+    <Node Id="dbo.Software_BrandId" Category="Field Foreign" Bounds="431.402419332732,-668.334556903248,61.2766666666666,25.9599999999999" Description="int" Label="BrandId" />
+    <Node Id="dbo.Software_Licence" Category="Field" Bounds="513.099238180389,-724.294624652271,58.9866666666667,25.96" Description="tinyint" Label="Licence" />
+    <Node Id="dbo.Software_Name" Category="Field" Bounds="431.402441305388,-724.294624652271,51.6966666666667,25.96" Description="nvarchar(128)" Label="Name" />
+    <Node Id="dbo.Software_Purpose" Category="Field Optional" Bounds="431.40247304367,-612.374412860279,63.1366666666668,25.96" Description="nvarchar(1024)" Label="Purpose" />
+    <Node Id="dbo.Software_SoftwareId" Category="Field Primary" Bounds="524.539169821014,-612.374382342701,76.7166666666667,25.9599999999999" Description="int" Label="SoftwareId" />
+  </Nodes>
+  <Links>
+    <Link Source="Database" Target="dbo" Category="Contains" />
+    <Link Source="dbo" Target="dbo.AspNetRoleClaims" Category="Contains" />
+    <Link Source="dbo" Target="dbo.AspNetRoles" Category="Contains" />
+    <Link Source="dbo" Target="dbo.AspNetUserClaims" Category="Contains" />
+    <Link Source="dbo" Target="dbo.AspNetUserLogins" Category="Contains" />
+    <Link Source="dbo" Target="dbo.AspNetUserRoles" Category="Contains" />
+    <Link Source="dbo" Target="dbo.AspNetUserTokens" Category="Contains" />
+    <Link Source="dbo" Target="dbo.AspNetUsers" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Brand" Category="Contains" />
+    <Link Source="dbo" Target="dbo.HW_SW" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Hardware" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Location" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Owner" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Room" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Software" Category="Contains" />
+    <Link Source="dbo.AspNetRoleClaims" Target="dbo.AspNetRoleClaims_ClaimType" Category="Contains" />
+    <Link Source="dbo.AspNetRoleClaims" Target="dbo.AspNetRoleClaims_ClaimValue" Category="Contains" />
+    <Link Source="dbo.AspNetRoleClaims" Target="dbo.AspNetRoleClaims_Id" Category="Contains" />
+    <Link Source="dbo.AspNetRoleClaims" Target="dbo.AspNetRoleClaims_RoleId" Category="Contains" />
+    <Link Source="dbo.AspNetRoleClaims_RoleId" Target="dbo.AspNetRoles_Id" Category="Foreign Key" Label="FK_AspNetRoleClaims_AspNetRoles_RoleId" />
+    <Link Source="dbo.AspNetRoles" Target="dbo.AspNetRoles_ConcurrencyStamp" Category="Contains" />
+    <Link Source="dbo.AspNetRoles" Target="dbo.AspNetRoles_Id" Category="Contains" />
+    <Link Source="dbo.AspNetRoles" Target="dbo.AspNetRoles_Name" Category="Contains" />
+    <Link Source="dbo.AspNetRoles" Target="dbo.AspNetRoles_NormalizedName" Category="Contains" />
+    <Link Source="dbo.AspNetUserClaims" Target="dbo.AspNetUserClaims_ClaimType" Category="Contains" />
+    <Link Source="dbo.AspNetUserClaims" Target="dbo.AspNetUserClaims_ClaimValue" Category="Contains" />
+    <Link Source="dbo.AspNetUserClaims" Target="dbo.AspNetUserClaims_Id" Category="Contains" />
+    <Link Source="dbo.AspNetUserClaims" Target="dbo.AspNetUserClaims_UserId" Category="Contains" />
+    <Link Source="dbo.AspNetUserClaims_UserId" Target="dbo.AspNetUsers_Id" Category="Foreign Key" Label="FK_AspNetUserClaims_AspNetUsers_UserId" />
+    <Link Source="dbo.AspNetUserLogins" Target="dbo.AspNetUserLogins_LoginProvider" Category="Contains" />
+    <Link Source="dbo.AspNetUserLogins" Target="dbo.AspNetUserLogins_ProviderDisplayName" Category="Contains" />
+    <Link Source="dbo.AspNetUserLogins" Target="dbo.AspNetUserLogins_ProviderKey" Category="Contains" />
+    <Link Source="dbo.AspNetUserLogins" Target="dbo.AspNetUserLogins_UserId" Category="Contains" />
+    <Link Source="dbo.AspNetUserLogins_UserId" Target="dbo.AspNetUsers_Id" Category="Foreign Key" Label="FK_AspNetUserLogins_AspNetUsers_UserId" />
+    <Link Source="dbo.AspNetUserRoles" Target="dbo.AspNetUserRoles_RoleId" Category="Contains" />
+    <Link Source="dbo.AspNetUserRoles" Target="dbo.AspNetUserRoles_UserId" Category="Contains" />
+    <Link Source="dbo.AspNetUserRoles_RoleId" Target="dbo.AspNetRoles_Id" Category="Foreign Key" Label="FK_AspNetUserRoles_AspNetRoles_RoleId" />
+    <Link Source="dbo.AspNetUserRoles_UserId" Target="dbo.AspNetUsers_Id" Category="Foreign Key" Label="FK_AspNetUserRoles_AspNetUsers_UserId" />
+    <Link Source="dbo.AspNetUserTokens" Target="dbo.AspNetUserTokens_LoginProvider" Category="Contains" />
+    <Link Source="dbo.AspNetUserTokens" Target="dbo.AspNetUserTokens_Name" Category="Contains" />
+    <Link Source="dbo.AspNetUserTokens" Target="dbo.AspNetUserTokens_UserId" Category="Contains" />
+    <Link Source="dbo.AspNetUserTokens" Target="dbo.AspNetUserTokens_Value" Category="Contains" />
+    <Link Source="dbo.AspNetUserTokens_UserId" Target="dbo.AspNetUsers_Id" Category="Foreign Key" Label="FK_AspNetUserTokens_AspNetUsers_UserId" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_AccessFailedCount" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_ConcurrencyStamp" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_Email" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_EmailConfirmed" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_Id" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_LockoutEnabled" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_LockoutEnd" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_NormalizedEmail" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_NormalizedUserName" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_PasswordHash" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_PhoneNumber" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_PhoneNumberConfirmed" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_SecurityStamp" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_TwoFactorEnabled" Category="Contains" />
+    <Link Source="dbo.AspNetUsers" Target="dbo.AspNetUsers_UserName" Category="Contains" />
+    <Link Source="dbo.Brand" Target="dbo.Brand_BrandId" Category="Contains" />
+    <Link Source="dbo.Brand" Target="dbo.Brand_Contanct full name" Category="Contains" />
+    <Link Source="dbo.Brand" Target="dbo.Brand_Email" Category="Contains" />
+    <Link Source="dbo.Brand" Target="dbo.Brand_Name" Category="Contains" />
+    <Link Source="dbo.Brand" Target="dbo.Brand_Phone" Category="Contains" />
+    <Link Source="dbo.Brand" Target="dbo.Brand_WebPage" Category="Contains" />
+    <Link Source="dbo.HW_SW" Target="dbo.HW_SW_Comments" Category="Contains" />
+    <Link Source="dbo.HW_SW" Target="dbo.HW_SW_HardwareId" Category="Contains" />
+    <Link Source="dbo.HW_SW" Target="dbo.HW_SW_SoftwareId" Category="Contains" />
+    <Link Source="dbo.HW_SW" Target="dbo.HW_SW_Status" Category="Contains" />
+    <Link Source="dbo.HW_SW" Target="dbo.HW_SW_Version" Category="Contains" />
+    <Link Source="dbo.HW_SW_HardwareId" Target="dbo.Hardware_HardwareId" Category="Foreign Key" Bounds="-93.101239083571,-65.965823796587,232.923224556269,306.811961990507" Label="FK_HW_SW_Hardware_HardwareId" />
+    <Link Source="dbo.HW_SW_SoftwareId" Target="dbo.Software_SoftwareId" Category="Foreign Key" Bounds="21.9709227795577,135.344737412739,354.029509995294,42.5980376427449" Label="FK_HW_SW_Software_SoftwareId" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_AcquiredDate" Category="Contains" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_AdditionalInfo" Category="Contains" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_BrandId" Category="Contains" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_Condition" Category="Contains" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_HardwareId" Category="Contains" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_Name" Category="Contains" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_OwnerId" Category="Contains" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_Purpose" Category="Contains" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_RoomId" Category="Contains" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_Serial" Category="Contains" />
+    <Link Source="dbo.Hardware" Target="dbo.Hardware_Specs" Category="Contains" />
+    <Link Source="dbo.Hardware_BrandId" Target="dbo.Brand_BrandId" Category="Foreign Key" Label="FK_Hardware_Brand_BrandId" />
+    <Link Source="dbo.Hardware_OwnerId" Target="dbo.Owner_OwnerId" Category="Foreign Key" Label="FK_Hardware_Owner_OwnerId" />
+    <Link Source="dbo.Hardware_RoomId" Target="dbo.Room_RoomId" Category="Foreign Key" Label="FK_Hardware_Room_RoomId" />
+    <Link Source="dbo.Location" Target="dbo.Location_Address" Category="Contains" />
+    <Link Source="dbo.Location" Target="dbo.Location_Country" Category="Contains" />
+    <Link Source="dbo.Location" Target="dbo.Location_LocationId" Category="Contains" />
+    <Link Source="dbo.Location" Target="dbo.Location_Place" Category="Contains" />
+    <Link Source="dbo.Owner" Target="dbo.Owner_Email" Category="Contains" />
+    <Link Source="dbo.Owner" Target="dbo.Owner_FullName" Category="Contains" />
+    <Link Source="dbo.Owner" Target="dbo.Owner_OwnerId" Category="Contains" />
+    <Link Source="dbo.Owner" Target="dbo.Owner_Phone" Category="Contains" />
+    <Link Source="dbo.Room" Target="dbo.Room_Floor" Category="Contains" />
+    <Link Source="dbo.Room" Target="dbo.Room_LocationId" Category="Contains" />
+    <Link Source="dbo.Room" Target="dbo.Room_Name" Category="Contains" />
+    <Link Source="dbo.Room" Target="dbo.Room_Purpose" Category="Contains" />
+    <Link Source="dbo.Room" Target="dbo.Room_RoomId" Category="Contains" />
+    <Link Source="dbo.Room" Target="dbo.Room_Size" Category="Contains" />
+    <Link Source="dbo.Room_LocationId" Target="dbo.Location_LocationId" Category="Foreign Key" Label="FK_Room_Location_LocationId" />
+    <Link Source="dbo.Software" Target="dbo.Software_BrandId" Category="Contains" />
+    <Link Source="dbo.Software" Target="dbo.Software_Licence" Category="Contains" />
+    <Link Source="dbo.Software" Target="dbo.Software_Name" Category="Contains" />
+    <Link Source="dbo.Software" Target="dbo.Software_Purpose" Category="Contains" />
+    <Link Source="dbo.Software" Target="dbo.Software_SoftwareId" Category="Contains" />
+    <Link Source="dbo.Software_BrandId" Target="dbo.Brand_BrandId" Category="Foreign Key" Label="FK_Software_Brand_BrandId" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Database" />
+    <Category Id="Field" />
+    <Category Id="Field Foreign" />
+    <Category Id="Field Optional" />
+    <Category Id="Field Primary" />
+    <Category Id="Foreign Key" />
+    <Category Id="Schema" />
+    <Category Id="Table" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="Description" Label="Description" Description="Description" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Field Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('Field')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+  </Styles>
+</DirectedGraph>

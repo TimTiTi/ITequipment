@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ITequipment.Data;
 using ITequipment.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITequipment.Controllers
 {
@@ -26,6 +27,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: Owner/Details/5
+        [Authorize(Roles = "Admin, PowerUser, User")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +46,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: Owner/Create
+        [Authorize(Roles = "Admin, PowerUser")]
         public IActionResult Create()
         {
             return View();
@@ -66,6 +69,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: Owner/Edit/5
+        [Authorize(Roles = "Admin, PowerUser")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -117,6 +121,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: Owner/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

@@ -15,16 +15,16 @@ namespace ITequipment.Models
         [StringLength(127)]
         public string Name { get; set; }
 
-        [Column("Contanct full name")]
+        [Column("Contact full name")]
         [StringLength(255, MinimumLength = 2),]
         public string ContactFullName { get; set; }
 
         [DataType(DataType.EmailAddress)]
-        [StringLength(128, MinimumLength= 5)]
+        [StringLength(127, MinimumLength= 5)]
         public string Email { get; set; }
 
         [DataType(DataType.PhoneNumber)]
-        [StringLength(64, MinimumLength= 10)]
+        [StringLength(63, MinimumLength= 10)]
         public string Phone { get; set; }
 
         [DataType(DataType.Url)]

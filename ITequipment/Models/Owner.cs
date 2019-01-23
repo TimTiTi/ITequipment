@@ -15,11 +15,11 @@ namespace ITequipment.Models
         public string FullName { get; set; }
 
         [DataType(DataType.EmailAddress)]
-        [StringLength(128)]
+        [StringLength(127)]
         public string Email { get; set; }
 
         [DataType(DataType.PhoneNumber)]
-        [StringLength(64)]
+        [StringLength(63, MinimumLength = 10)]
         public string Phone { get; set; }
 		
         public virtual ICollection<Hardware> Hardware { get; set; }

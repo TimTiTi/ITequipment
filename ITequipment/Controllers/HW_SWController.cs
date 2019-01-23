@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ITequipment.Data;
 using ITequipment.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITequipment.Controllers
 {
@@ -27,6 +28,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: HW_SW/Details/5
+        [Authorize(Roles = "Admin, PowerUser, User")]
         public async Task<IActionResult> Details(int? id, int? id2)
         {
             if (id == null || id2 == null)
@@ -47,6 +49,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: HW_SW/Create
+        [Authorize(Roles = "Admin, PowerUser")]
         public IActionResult Create()
         {
             ViewData["HardwareId"] = new SelectList(_context.Hardwares, "HardwareId", "Name");
@@ -73,6 +76,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: HW_SW/Edit/5
+        [Authorize(Roles = "Admin, PowerUser")]
         public async Task<IActionResult> Edit(int? id, int? id2)
         {
             if (id == null || id2 == null)
@@ -153,6 +157,7 @@ namespace ITequipment.Controllers
         }
 
         // GET: HW_SW/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id, int? id2)
         {
             if (id == null || id2 == null)

@@ -10,7 +10,7 @@ namespace ITequipment.Models
         [Key]
         public int LocationId { get; set; }
         [Required]
-        [StringLength(512)]
+        [StringLength(511)]
         public string Address { get; set; }
         [Required]
         [StringLength(255)]

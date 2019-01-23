@@ -21,22 +21,22 @@ namespace ITequipment.Models
         public int HardwareId { get; set; }
 
         [Required]
-        [StringLength(128)]
+        [StringLength(127)]
         public string Serial { get; set; }
 
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
 
-        [StringLength(1024)]
+        [StringLength(1023)]
         public string Purpose { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(4096)]
+        [StringLength(2047)]
         public string Specs { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(2048)]
+        [StringLength(2047)]
         public string AdditionalInfo { get; set; }
 
         [DataType(DataType.Date)]
@@ -45,7 +45,7 @@ namespace ITequipment.Models
         [Required]
         public Condition Condition { get; set; }
 
-        [DisplayFormat(NullDisplayText = "Unknown")]
+        [DisplayFormat(NullDisplayText = "Unknown")]        
         public int? BrandId { get; set; }
         public virtual Brand Brand { get; set; }
 		

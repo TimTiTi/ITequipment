@@ -24,11 +24,11 @@ namespace ITequipment.Models
         public int SoftwareId { get; set; }
 
         [Required]        
-        [StringLength(128)]
+        [StringLength(127)]
         public string Name { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(1024)]
+        [StringLength(1023)]
         public string Purpose { get; set; }
 
         [Column("Licence")]
